@@ -2,6 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myble">
 
+    <!--Application 블루투스 기능 사용 : 연결 요청, 연결 수락 및 데이터 전송과 같은 블루투스 통신을 수행하는데 필-->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <!-- 앱이 기기 검색을 시작하거나 블루투스 설정을 조작하기위한 권한(BLUETOOTH 권한이 반드시 필요) -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <!-- If your app targets Android 9 or lower, you can declare
+         ACCESS_COARSE_LOCATION instead.
+          저전력 비콘은 위치와 연결되는 경우가 많음. 이 권한이 없으면 스캔 시 아무런 결과가 반영되지 않음-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!--앱이 저전력 블루투스 지원 기기에만 제공되도록 선언하고 싶을 경우(true), 아닐 경우 (false)-->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
